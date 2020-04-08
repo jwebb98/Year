@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#008577"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/voltaire"
+        android:gravity="center"
+        android:text="Historical"
+        android:textColor="#000000"
+        android:textSize="48pt" />
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txt_roundOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="@font/francois_one"
+                android:gravity="center"
+                android:text="Round: 5"
+                android:textColor="#010101"
+                android:textSize="16pt" />
+
+            <TextView
+                android:id="@+id/txt_scoreOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/francois_one"
+                android:gravity="center"
+                android:text="Score: 3"
+                android:textColor="#010101"
+                android:textSize="16pt" />
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="460dp"
+        android:layout_height="340dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:gravity="center" />
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_YourGuess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/francois_one"
+                android:gravity="center"
+                android:text="Your Guess:"
+                android:textColor="#010101"
+                android:textSize="18pt" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/numberEnteredEt"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="133dp"
+                android:layout_marginRight="133dp"
+                android:background="@color/cardview_light_background"
+
+                android:fontFamily="@font/francois_one"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="#010101"
+                android:textSize="18pt" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txt_CorrectAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+                android:fontFamily="@font/francois_one"
+                android:gravity="center"
+                android:text="Correct Answer:"
+                android:textColor="#010101"
+                android:textSize="18pt" />
+
+            <TextView
+                android:id="@+id/txt_displaycorrectyear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/francois_one"
+                android:gravity="center"
+                android:paddingRight="100dp"
+                android:text="Year"
+                android:textColor="#9db847"
+                android:textSize="18pt" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="24dp" >
+
+            <Button
+                android:id="@+id/submitGuess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Submit Guess"
+                android:textColor="#010101"
+                android:textSize="14pt" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/nextQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Next Round"
+                android:textColor="#010101"
+                android:textSize="14pt" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

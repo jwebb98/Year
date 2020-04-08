@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Retrieving_images_from_firebase</string>
+    <string name="title_activity_images">ImagesActivity</string>
+
+    <string name="HistoryItem1">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FNixon_Watergate-1974.JPG?alt=media&amp;token=d2cc804b-420f-47ed-b921-8cf7cb3450bb</string>
+    <string name="HistoryItem2">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FObamaSwornIn-2008.jfif?alt=media&amp;token=b2575a5e-241f-44ee-ad04-16a37655cace</string>
+    <string name="HistoryItem3">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FPhilippePetit-1974.jpg?alt=media&amp;token=8a096652-2405-44db-b742-60cd11c24ae1</string>
+    <string name="HistoryItem4">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FPrincessDianaWedding-1981.jpg?alt=media&amp;token=e9da7032-f7fc-4e78-bb05-ea011f0457d5</string>
+    <string name="HistoryItem5">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FProhibitionEnds-1933.jpg?alt=media&amp;token=81b104a9-3d2e-43e9-87a1-a64381b61618</string>
+    <string name="HistoryItem6">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FSteveJobs-2007.jpg?alt=media&amp;token=815fe412-c499-48a9-ac75-31e2ac516381</string>
+    <string name="HistoryItem7">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FTitanic-1912.jpg?alt=media&amp;token=9535477c-ef90-4aab-a94e-c0059a6f41a9</string>
+    <string name="HistoryItem8">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FBerlin-Wall-1989.jpg?alt=media&amp;token=4187110d-fb17-479c-9a8a-655470d3daa8</string>
+    <string name="HistoryItem9">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FChurchillYalta-1945.jpg?alt=media&amp;token=99fd7de6-740f-45d6-8ada-8c1a58433be4</string>
+    <string name="HistoryItem10">https://firebasestorage.googleapis.com/v0/b/retrieve-images-1c732.appspot.com/o/History%2FJFK-Assassination-1963.jpg?alt=media&amp;token=f04d3335-92a3-4c9e-a1e7-d2e4b93b3e33</string>
+
+    <string name="Year">Year!</string>
+
+    <array name="historyArray">/
+        <item>@string/HistoryItem1</item>
+        <item>@string/HistoryItem2</item>
+        <item>@string/HistoryItem3</item>
+        <item>@string/HistoryItem4</item>
+        <item>@string/HistoryItem5</item>
+        <item>@string/HistoryItem6</item>
+        <item>@string/HistoryItem7</item>
+        <item>@string/HistoryItem8</item>
+        <item>@string/HistoryItem9</item>
+        <item>@string/HistoryItem10</item>
+    </array>
+
+    <plurals name="historyArray">/
+        <item quantity="one">@string/HistoryItem1</item>
+        <item quantity="two">@string/HistoryItem2</item>
+
+    </plurals>
+</resources>
