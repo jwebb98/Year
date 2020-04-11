@@ -15,7 +15,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.firebase.FirebaseApp;
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
@@ -30,9 +33,12 @@ public class MainActivity extends AppCompatActivity  {
     TextView textView2;
     TextView textView3;
     Button submitGuess;
+    ImageView image;
     TextView scoreView;
     TextView roundView;
-    Firebase mQuestionRef;
+    Firebase mQuestionRef,mYearRef;
+    int mQuestionNumber = 1;
+
 
     int scoreOn = 0;
     int roundOn =1;
@@ -41,6 +47,9 @@ public class MainActivity extends AppCompatActivity  {
     static int randomIndex = 0;
     static int ImageYear = 0;
     String[] Historyarray;
+
+    int size = 5;
+
 
     //method handles all operations for submitting a guess
     public void validate(){
@@ -59,6 +68,8 @@ public class MainActivity extends AppCompatActivity  {
             textView3.setVisibility(View.VISIBLE);
             submitGuess.setVisibility(View.INVISIBLE);
             nextRound.setVisibility(View.VISIBLE);
+            TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
+            doubleView.setText("" + ImageYear);
             if (randomIndex ==11 || randomIndex==17 || randomIndex==27 || randomIndex==30) {
                 roundOn = roundOn - 1;
                 Intent myIntent = new Intent(MainActivity.this, MainMenu.class);
@@ -66,8 +77,8 @@ public class MainActivity extends AppCompatActivity  {
                 finish();
             }
         }
-         if (!(n == ImageYear ) && n > 2019 || n < 1) {
-            Toast.makeText(this,"Please enter a year between '1-2019'", Toast.LENGTH_SHORT).show();
+         if (!(n == ImageYear ) && n > 2020 || n < 1) {
+            Toast.makeText(this,"Please enter a year between '1-2020'", Toast.LENGTH_SHORT).show();
         }
        else if (!(n == ImageYear )) {
             Toast.makeText(this,"Incorrect, correct answer was:  " + ImageYear, Toast.LENGTH_SHORT).show();
@@ -78,6 +89,8 @@ public class MainActivity extends AppCompatActivity  {
             textView3.setVisibility(View.VISIBLE);
              submitGuess.setVisibility(View.INVISIBLE);
              nextRound.setVisibility(View.VISIBLE);
+             TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
+             doubleView.setText("" + ImageYear);
              if (randomIndex ==11 || randomIndex==17 || randomIndex==27 || randomIndex==32) {
                  roundOn = roundOn - 1;
                  Intent myIntent = new Intent(MainActivity.this, MainMenu.class);
@@ -94,9 +107,73 @@ public class MainActivity extends AppCompatActivity  {
         doubleView.setText("" + DisplayTheYear);
     }
 
+    public void RandomQuestion(){
+
+
+        ArrayList<Integer> list = new ArrayList<Integer>(size);
+
+        for(int i = 1; i <= size; i++) {
+            list.add(i);
+        }
+
+        Random rand = new Random();
+        if(list.size() > 0) {
+            int index = rand.nextInt(list.size());
+
+            list.remove(index);
+            mQuestionNumber = index +1;
+            System.out.println("QUESTION SELECTED: "+ mQuestionNumber);
+
+        }
+
+    }
+
+
+    public void UpdateQuestion(){
+        mQuestionRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/History/"+ mQuestionNumber +"/image");
+        TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
+        TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
+        TextView textView = findViewById(R.id.txt_displaycorrectyear);
+        imageView = findViewById(R.id.image);
+        imageView.setVisibility(View.VISIBLE);
+        textView2.setVisibility(View.VISIBLE);
+        editText.setVisibility(View.VISIBLE);
+        textView.setVisibility(View.INVISIBLE);
+        textView3.setVisibility(View.INVISIBLE);
+        nextRound.setVisibility(View.INVISIBLE);
+        mQuestionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String image = dataSnapshot.getValue(String.class);
+                Glide.with(getApplicationContext()).load(image).into(imageView);
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+        mYearRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/History/"+ mQuestionNumber +"/CorrectYear");
+        mYearRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int YearSet = dataSnapshot.getValue(int.class);
+                ImageYear = YearSet;
+                //DisplayImageYear(ImageYear);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+        mQuestionNumber++;
+    }
     //method selects image from array and displays it
     public void ImageSelect(){
-        mQuestionRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/Categories%20/History/0/image");
+        //mQuestionRef = new Firebase ("https://retrieve-images-1c732.firebaseio.com/0/question");
         Historyarray = getResources().getStringArray(R.array.historyArray);
         // randomnum = rand.nextInt(RandomImage.length);
         int numberOfElements = Historyarray.length;
@@ -109,7 +186,7 @@ public class MainActivity extends AppCompatActivity  {
             imageView = findViewById(R.id.image);
             imageView.setVisibility(View.VISIBLE);
             String url = randomStr;
-            Glide.with(getApplicationContext()).load(url).into(imageView);
+            //Glide.with(getApplicationContext()).load(url).into(imageView);
             System.out.println("Index in array:   " + randomIndex);
             textView2.setVisibility(View.VISIBLE);
             editText.setVisibility(View.VISIBLE);
@@ -117,9 +194,9 @@ public class MainActivity extends AppCompatActivity  {
             textView3.setVisibility(View.INVISIBLE);
             nextRound.setVisibility(View.INVISIBLE);
         }
-        randomIndex++;
-        ImageYearCheck cls2 = new ImageYearCheck();
-        cls2.checkIndex();
+        //randomIndex++;
+        //ImageYearCheck cls2 = new ImageYearCheck();
+        //cls2.checkIndex();
     }
 
     @Override
@@ -128,7 +205,7 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
 
-        TextView textView = findViewById(R.id.txt_displaycorrectyear);
+        TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
         editText = (EditText) findViewById(R.id.numberEnteredEt);
         submitGuess = (Button) findViewById(R.id.submitGuess);
         nextRound = (Button) findViewById(R.id.nextQuestion);
@@ -136,20 +213,12 @@ public class MainActivity extends AppCompatActivity  {
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
         TextView scoreView = (TextView) findViewById(R.id.txt_scoreOn);
         TextView roundView = findViewById(R.id.txt_roundOn);
+        ImageView imageView = findViewById(R.id.image);
 
-        submitGuess.setVisibility(View.INVISIBLE);
-        textView.setVisibility(View.INVISIBLE);
-        textView3.setVisibility(View.INVISIBLE);
-        textView2.setVisibility(View.INVISIBLE);
-        nextRound.setVisibility(View.INVISIBLE);
-        editText.setVisibility(View.INVISIBLE);
-        scoreView.setVisibility(View.INVISIBLE);
-        roundView.setVisibility(View.INVISIBLE);
+        UpdateQuestion();
 
-        ImageSelect();
-        DisplayImageYear(ImageYear);
+
         editText.getText().clear();
-        //History.setVisibility(View.INVISIBLE);
         scoreView.setVisibility(View.VISIBLE);
         roundView.setVisibility(View.VISIBLE);
         scoreView.setText("Score: " + scoreOn);
@@ -178,8 +247,7 @@ public class MainActivity extends AppCompatActivity  {
         nextRound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ImageSelect();
-                DisplayImageYear(ImageYear);
+                UpdateQuestion();
                 editText.getText().clear();
                 submitGuess.setVisibility(View.VISIBLE);
                 TextView roundView = findViewById(R.id.txt_roundOn);

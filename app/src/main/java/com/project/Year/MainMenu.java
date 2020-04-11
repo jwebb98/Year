@@ -20,7 +20,7 @@ public class MainMenu extends MainActivity{
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainMenu.this, MainActivity.class);
                 startActivity(myIntent);
-                randomIndex--;
+                //randomIndex--;
                 finish();
             }
         });
