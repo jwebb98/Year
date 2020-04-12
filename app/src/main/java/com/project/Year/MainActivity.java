@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity  {
     static int ImageYear = 0;
     String[] Historyarray;
 
-    int size = 5;
+
 
 
     //method handles all operations for submitting a guess
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity  {
              nextRound.setVisibility(View.VISIBLE);
              TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
              doubleView.setText("" + ImageYear);
-             if (randomIndex ==11 || randomIndex==17 || randomIndex==27 || randomIndex==32) {
+             if (roundOn == 6) {
                  roundOn = roundOn - 1;
                  Intent myIntent = new Intent(MainActivity.this, MainMenu.class);
                  startActivity(myIntent);
@@ -108,28 +108,46 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void RandomQuestion(){
+      if(roundOn==1){
+          int size = 2;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+          for(int i = 1; i <= size; i++) { list.add(i); }
+          Random rand = new Random();
+          if(list.size() > 0) { int index = rand.nextInt(list.size());
+          System.out.println("INDEX SELECTED =   " + list.remove(index));
+          mQuestionNumber = index+1; } }
 
-
-        ArrayList<Integer> list = new ArrayList<Integer>(size);
-
-        for(int i = 1; i <= size; i++) {
-            list.add(i);
-        }
-
+      if(roundOn==2){
+        int size = 4;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        for(int i = 3; i <= size; i++) { list.add(i); }
         Random rand = new Random();
-        if(list.size() > 0) {
-            int index = rand.nextInt(list.size());
+        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+3; } }
 
-            list.remove(index);
-            mQuestionNumber = index +1;
-            System.out.println("QUESTION SELECTED: "+ mQuestionNumber);
+      if(roundOn==3){
+        int size = 6;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        for(int i = 5; i <= size; i++) { list.add(i); }
+        Random rand = new Random();
+        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+5; }
 
-        }
+      }if(roundOn==4){
+        int size = 8;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        for(int i = 7; i <= size; i++) { list.add(i); }
+        Random rand = new Random();
+        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+7; }
 
-    }
+      }if(roundOn==5){
+        int size = 10;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        for(int i = 9; i <= size; i++) { list.add(i); }
+        Random rand = new Random();
+        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+9; }
+      }}
 
 
     public void UpdateQuestion(){
+        if (roundOn == 6) {
+            Intent myIntent = new Intent(MainActivity.this, MainMenu.class);
+            startActivity(myIntent);
+            finish();
+        }
         mQuestionRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/History/"+ mQuestionNumber +"/image");
         TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
@@ -169,7 +187,7 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-        mQuestionNumber++;
+        //mQuestionNumber++;
     }
     //method selects image from array and displays it
     public void ImageSelect(){
@@ -215,6 +233,7 @@ public class MainActivity extends AppCompatActivity  {
         TextView roundView = findViewById(R.id.txt_roundOn);
         ImageView imageView = findViewById(R.id.image);
 
+        RandomQuestion();
         UpdateQuestion();
 
 
@@ -247,6 +266,7 @@ public class MainActivity extends AppCompatActivity  {
         nextRound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                RandomQuestion();
                 UpdateQuestion();
                 editText.getText().clear();
                 submitGuess.setVisibility(View.VISIBLE);
