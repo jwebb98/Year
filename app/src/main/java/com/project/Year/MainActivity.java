@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity  {
     TextView roundView;
     Firebase mQuestionRef,mYearRef;
     int mQuestionNumber = 1;
+    //String mQuestionTopic;
 
 
     int scoreOn = 0;
@@ -100,45 +101,42 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
-    //method displays the correct year when called
-    public void DisplayImageYear(int DisplayTheYear) {
-        DisplayTheYear = ImageYear;
-        TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
-        doubleView.setText("" + DisplayTheYear);
-    }
 
     public void RandomQuestion(){
       if(roundOn==1){
-          int size = 2;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+          int size = 5;  ArrayList<Integer> list = new ArrayList<Integer>(size);
           for(int i = 1; i <= size; i++) { list.add(i); }
           Random rand = new Random();
           if(list.size() > 0) { int index = rand.nextInt(list.size());
           System.out.println("INDEX SELECTED =   " + list.remove(index));
-          mQuestionNumber = index+1; } }
+          mQuestionNumber = index+1;
+          System.out.println("QUESTION NUMBER SELECTED" + mQuestionNumber);} }
 
       if(roundOn==2){
-        int size = 4;  ArrayList<Integer> list = new ArrayList<Integer>(size);
-        for(int i = 3; i <= size; i++) { list.add(i); }
+        int size = 5;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        for(int i = 1; i <= size; i++) { list.add(i); }
         Random rand = new Random();
-        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+3; } }
+        if(list.size() > 0) { int index = rand.nextInt(list.size()); System.out.println("INDEX SELECTED =   " + list.remove(index)); mQuestionNumber = index+6;
+        System.out.println(mQuestionNumber);} }
 
       if(roundOn==3){
-        int size = 6;  ArrayList<Integer> list = new ArrayList<Integer>(size);
-        for(int i = 5; i <= size; i++) { list.add(i); }
+        int size = 2;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        for(int i = 1; i <= size; i++) { list.add(i); }
         Random rand = new Random();
-        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+5; }
+        if(list.size() > 0) { int index = rand.nextInt(list.size());System.out.println("INDEX SELECTED =   " + list.remove(index)); mQuestionNumber = index+11;
+            System.out.println(mQuestionNumber);}
 
       }if(roundOn==4){
-        int size = 8;  ArrayList<Integer> list = new ArrayList<Integer>(size);
-        for(int i = 7; i <= size; i++) { list.add(i); }
+        int size = 5;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        for(int i = 1; i <= size; i++) { list.add(i); }
         Random rand = new Random();
-        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+7; }
+        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+16; System.out.println("INDEX SELECTED =   " + list.remove(index));  System.out.println(mQuestionNumber);}
 
       }if(roundOn==5){
-        int size = 10;  ArrayList<Integer> list = new ArrayList<Integer>(size);
-        for(int i = 9; i <= size; i++) { list.add(i); }
+        int size = 5;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        for(int i = 1; i <= size; i++) { list.add(i); }
         Random rand = new Random();
-        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+9; }
+        if(list.size() > 0) { int index = rand.nextInt(list.size());mQuestionNumber = index+21; System.out.println("INDEX SELECTED =   " + list.remove(index)); System.out.println(mQuestionNumber);}
       }}
 
 
@@ -148,7 +146,7 @@ public class MainActivity extends AppCompatActivity  {
             startActivity(myIntent);
             finish();
         }
-        mQuestionRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/History/"+ mQuestionNumber +"/image");
+        mQuestionRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/" + MainMenu.mQuestionTopic + "/" + mQuestionNumber +"/image");
         TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
         TextView textView = findViewById(R.id.txt_displaycorrectyear);
@@ -172,7 +170,7 @@ public class MainActivity extends AppCompatActivity  {
 
             }
         });
-        mYearRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/History/"+ mQuestionNumber +"/CorrectYear");
+        mYearRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/" + MainMenu.mQuestionTopic + "/" + mQuestionNumber +"/correctyear");
         mYearRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

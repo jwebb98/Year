@@ -26,7 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
         android:fontFamily="@font/francois_one"
         android:gravity="center"
         android:text="Select Category:"
@@ -36,31 +35,108 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
-        android:id="@+id/btn_Historical"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_UefaCL"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/francois_one"
+        android:text="Uefa CL Teams"
+        android:textColor="#010101"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_F1" />
+
+    <Button
+        android:id="@+id/btn_Historical"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/francois_one"
         android:text="Historical"
         android:textColor="#010101"
-        android:textSize="12pt"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_category" />
+
+    <Button
+        android:id="@+id/btn_Film"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/francois_one"
+        android:text="Film Posters"
+        android:textColor="#010101"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.927"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_category" />
+
+    <Button
+        android:id="@+id/btn_IconicAlbums"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/francois_one"
+        android:text="Iconic Albums"
+        android:textColor="#010101"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Film" />
+
+    <Button
+        android:id="@+id/btn_HipHop"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/francois_one"
+        android:text="Hip-Hop Albums"
+        android:textColor="#010101"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_IconicAlbums" />
+
+    <Button
+        android:id="@+id/btn_F1"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/francois_one"
+        android:text="F1 Podiums"
+        android:textColor="#010101"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Historical" />
 
     <TextView
         android:id="@+id/txt_morecat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/francois_one"
         android:gravity="center"
         android:text="More Categories coming soon..."
         android:textColor="#010101"
         android:textSize="12pt"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Historical"
+        app:layout_constraintBottom_toTopOf="@+id/Logout"
+        app:layout_constraintTop_toBottomOf="@+id/btn_HipHop"
+        app:layout_constraintVertical_bias="0.87"
         tools:layout_editor_absoluteX="0dp" />
 
     <Button
@@ -68,12 +144,12 @@
         android:layout_width="129dp"
         android:layout_height="65dp"
         android:layout_marginEnd="64dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="48dp"
+        android:onClick="logout"
         android:text="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="logout"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
