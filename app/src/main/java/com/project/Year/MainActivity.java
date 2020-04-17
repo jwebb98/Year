@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity  {
     TextView roundView;
     Firebase mQuestionRef,mYearRef;
     int mQuestionNumber = 1;
-    //String mQuestionTopic;
+
 
 
     int scoreOn = 0;
