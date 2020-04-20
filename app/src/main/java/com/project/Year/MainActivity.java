@@ -1,6 +1,7 @@
 package com.project.Year;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.firebase.FirebaseApp;
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity  {
     TextView textView3;
     Button submitGuess;
     ImageView image;
+    PhotoView photoView;
     TextView scoreView;
     TextView roundView;
     Firebase mQuestionRef,mYearRef;
@@ -150,8 +153,8 @@ public class MainActivity extends AppCompatActivity  {
         TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
         TextView textView = findViewById(R.id.txt_displaycorrectyear);
-        imageView = findViewById(R.id.image);
-        imageView.setVisibility(View.VISIBLE);
+        final PhotoView photoView = (PhotoView)findViewById(R.id.image);
+        photoView.setVisibility(View.VISIBLE);
         textView2.setVisibility(View.VISIBLE);
         editText.setVisibility(View.VISIBLE);
         textView.setVisibility(View.INVISIBLE);
@@ -161,7 +164,11 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String image = dataSnapshot.getValue(String.class);
-                Glide.with(getApplicationContext()).load(image).into(imageView);
+                //Glide.with(getApplicationContext()).load(image).into(imageView);
+                 Glide.with(getApplicationContext()).load(image).into(photoView);
+
+
+
 
             }
 
@@ -170,6 +177,7 @@ public class MainActivity extends AppCompatActivity  {
 
             }
         });
+
         mYearRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/" + MainMenu.mQuestionTopic + "/" + mQuestionNumber +"/correctyear");
         mYearRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -187,6 +195,7 @@ public class MainActivity extends AppCompatActivity  {
 
         //mQuestionNumber++;
     }
+
     //method selects image from array and displays it
     public void ImageSelect(){
         //mQuestionRef = new Firebase ("https://retrieve-images-1c732.firebaseio.com/0/question");
@@ -229,7 +238,7 @@ public class MainActivity extends AppCompatActivity  {
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
         TextView scoreView = (TextView) findViewById(R.id.txt_scoreOn);
         TextView roundView = findViewById(R.id.txt_roundOn);
-        ImageView imageView = findViewById(R.id.image);
+        final ImageView imageView = findViewById(R.id.image);
 
         RandomQuestion();
         UpdateQuestion();
@@ -272,6 +281,9 @@ public class MainActivity extends AppCompatActivity  {
                 roundView.setText("Round: " + roundOn);
             }
         });
+
+
+
 
     }
 }
