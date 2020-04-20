@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity  {
     Button nextRound;
     TextView textView;
     EditText editText;
-    TextView textView2;
     TextView textView3;
     Button submitGuess;
     ImageView image;
