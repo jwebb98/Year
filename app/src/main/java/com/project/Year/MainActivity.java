@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity  {
             startActivity(myIntent);
             finish();
         }
-        mQuestionRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/" + MainMenu.mQuestionTopic + "/" + mQuestionNumber +"/image");
+        mQuestionRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/" + CategorySelect.mQuestionTopic + "/" + mQuestionNumber +"/image");
         TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
         TextView textView = findViewById(R.id.txt_displaycorrectyear);
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
-        mYearRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/" + MainMenu.mQuestionTopic + "/" + mQuestionNumber +"/correctyear");
+        mYearRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/" + CategorySelect.mQuestionTopic + "/" + mQuestionNumber +"/correctyear");
         mYearRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

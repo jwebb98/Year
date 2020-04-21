@@ -13,12 +13,12 @@
         android:required="false" />
 
     <application
+        android:name=".FirebaseUsage"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/Year"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".FirebaseUsage"
         android:theme="@style/AppTheme">
         <activity android:name=".MainMenu">
             <intent-filter>
@@ -28,8 +28,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login" />
-        <activity android:name=".Register"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".Register" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".CategorySelect"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
