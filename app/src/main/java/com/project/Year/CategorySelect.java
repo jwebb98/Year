@@ -136,7 +136,7 @@ public class CategorySelect extends MainActivity {
             }
             else if(i == 1){
                 mNextBtn.setEnabled(true);
-                mBackBtn.setEnabled(false);
+                mBackBtn.setEnabled(true);
                 mBackBtn.setVisibility(View.VISIBLE);
                 mCatergoryButton.setEnabled(true);
                 mCatergoryButton.setText("Film Posters");
@@ -144,7 +144,7 @@ public class CategorySelect extends MainActivity {
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
                 mNextBtn.setText("Next");
                 mQuestionTopic = "IconicMoviePosters";
-                mBackBtn.setText("");
+                mBackBtn.setText("Back");
 
             }  else if(i == 2){
                 mNextBtn.setEnabled(true);

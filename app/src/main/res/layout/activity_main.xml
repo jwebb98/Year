@@ -88,6 +88,7 @@
                 android:text="Your Guess:"
                 android:textColor="#010101"
                 android:textSize="12pt" />
+
         </TableRow>
 
         <TableRow
@@ -107,7 +108,19 @@
                 android:inputType="number"
                 android:maxLength="4"
                 android:textColor="#010101"
-                android:textSize="14pt" />
+                android:textSize="14pt"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/txt_YouScored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/francois_one"
+                android:gravity="center"
+                android:text="You Scored:"
+                android:textColor="#010101"
+                android:textSize="12pt" />
 
         </TableRow>
 
@@ -136,7 +149,7 @@
                 android:fontFamily="@font/francois_one"
                 android:gravity="center"
                 android:paddingRight="140dp"
-                android:text="Year"
+                android:text=" Year"
                 android:textColor="#9db847"
                 android:textSize="14pt" />
         </TableRow>

@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+
     int scoreOn = 0;
     int roundOn =1;
     Integer[] colm = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -60,49 +61,97 @@ public class MainActivity extends AppCompatActivity  {
         TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
         TextView textView = findViewById(R.id.txt_displaycorrectyear);
+        TextView YouScored = findViewById(R.id.txt_YouScored);
 
         if (n == ImageYear) {
             Toast.makeText(this,"Well done that is correct", Toast.LENGTH_SHORT).show();
             roundOn = roundOn + 1;
-            scoreOn = scoreOn + 1;
-            textView2.setVisibility(View.INVISIBLE);
-            editText.setVisibility(View.INVISIBLE);
-            textView.setVisibility(View.VISIBLE);
-            textView3.setVisibility(View.VISIBLE);
-            submitGuess.setVisibility(View.INVISIBLE);
-            nextRound.setVisibility(View.VISIBLE);
-            TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
-            doubleView.setText("" + ImageYear);
-            if (randomIndex ==11 || randomIndex==17 || randomIndex==27 || randomIndex==30) {
-                roundOn = roundOn - 1;
-                Intent myIntent = new Intent(MainActivity.this, MainMenu.class);
-                startActivity(myIntent);
-                finish();
-            }
+            scoreOn = scoreOn + 100;
+            YouScored.setText("You Scored " + 100);
+            TestAnswerStuff();
+
         }
          if (!(n == ImageYear ) && n > 2020 || n < 1) {
             Toast.makeText(this,"Please enter a year between '1-2020'", Toast.LENGTH_SHORT).show();
         }
-       else if (!(n == ImageYear )) {
-            Toast.makeText(this,"Incorrect, correct answer was:  " + ImageYear, Toast.LENGTH_SHORT).show();
+       else if (n==ImageYear+9 || n==ImageYear-9  ) {
              roundOn = roundOn + 1;
-             textView2.setVisibility(View.INVISIBLE);
-             editText.setVisibility(View.INVISIBLE);
-             textView.setVisibility(View.VISIBLE);
-            textView3.setVisibility(View.VISIBLE);
-             submitGuess.setVisibility(View.INVISIBLE);
-             nextRound.setVisibility(View.VISIBLE);
-             TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
-             doubleView.setText("" + ImageYear);
-             if (roundOn == 6) {
-                 roundOn = roundOn - 1;
-                 Intent myIntent = new Intent(MainActivity.this, MainMenu.class);
-                 startActivity(myIntent);
-                 finish();
-             }
+             YouScored.setText("You Scored " + 10);
+             scoreOn = scoreOn + 10;
+             TestAnswerStuff();
         }
+         else if (n==ImageYear+8 || n==ImageYear-8  ) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 20);
+             scoreOn = scoreOn + 20;
+             TestAnswerStuff();
+         }
+         else if (n==ImageYear+7 || n==ImageYear-7  ) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 30);
+             scoreOn = scoreOn + 30;
+             TestAnswerStuff();
+         }
+         else if (n==ImageYear+6 || n==ImageYear-6  ) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 40);
+             scoreOn = scoreOn + 40;
+             TestAnswerStuff();
+         }
+         else if (n==ImageYear+5 || n==ImageYear-5  ) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 50);
+             scoreOn = scoreOn + 50;
+             TestAnswerStuff();
+         }
+         else if (n==ImageYear+4 || n==ImageYear-4  ) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 60);
+             scoreOn = scoreOn + 60;
+             TestAnswerStuff();
+         }
+         else if (n==ImageYear+3 || n==ImageYear-3  ) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 70);
+             scoreOn = scoreOn + 70;
+             TestAnswerStuff();
+         }
+         else if (n==ImageYear+2 || n==ImageYear-2  ) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 80);
+             scoreOn = scoreOn + 80;
+             TestAnswerStuff();
+         }
+         else if (n==ImageYear-1 || n==ImageYear-1  ) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 90);
+             scoreOn = scoreOn + 90;
+             TestAnswerStuff();
+         }
+         else if (!(n==ImageYear )) {
+             roundOn = roundOn + 1;
+             YouScored.setText("You Scored " + 0);
+             TestAnswerStuff();
+         }
     }
 
+    public void TestAnswerStuff(){
+        int n = editText.getText().toString().equals("") ? 0 :Integer.parseInt(editText.getText().toString());
+        TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
+        TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
+        TextView textView = findViewById(R.id.txt_displaycorrectyear);
+        TextView YouScored = findViewById(R.id.txt_YouScored);
+        textView2.setText("Your Guess:  " + n);
+        YouScored.setVisibility(View.VISIBLE);
+        editText.setVisibility(View.GONE);
+        textView2.setVisibility(View.VISIBLE);
+        textView.setVisibility(View.VISIBLE);
+        textView3.setVisibility(View.VISIBLE);
+        submitGuess.setVisibility(View.INVISIBLE);
+        nextRound.setVisibility(View.VISIBLE);
+        TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
+        doubleView.setText(" " + ImageYear);
+    }
 
     public void RandomQuestion(){
       if(roundOn==1){
@@ -153,12 +202,14 @@ public class MainActivity extends AppCompatActivity  {
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
         TextView textView = findViewById(R.id.txt_displaycorrectyear);
         final PhotoView photoView = (PhotoView)findViewById(R.id.image);
+        TextView YouScored = findViewById(R.id.txt_YouScored);
         photoView.setVisibility(View.VISIBLE);
         textView2.setVisibility(View.VISIBLE);
         editText.setVisibility(View.VISIBLE);
         textView.setVisibility(View.INVISIBLE);
         textView3.setVisibility(View.INVISIBLE);
         nextRound.setVisibility(View.INVISIBLE);
+        YouScored.setVisibility(View.GONE);
         mQuestionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -233,9 +284,12 @@ public class MainActivity extends AppCompatActivity  {
         editText = (EditText) findViewById(R.id.numberEnteredEt);
         submitGuess = (Button) findViewById(R.id.submitGuess);
         nextRound = (Button) findViewById(R.id.nextQuestion);
-        TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
+        final TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
         TextView scoreView = (TextView) findViewById(R.id.txt_scoreOn);
+
+
+
         TextView roundView = findViewById(R.id.txt_roundOn);
         final ImageView imageView = findViewById(R.id.image);
 
@@ -244,6 +298,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
         editText.getText().clear();
+
         scoreView.setVisibility(View.VISIBLE);
         roundView.setVisibility(View.VISIBLE);
         scoreView.setText("Score: " + scoreOn);
@@ -278,6 +333,7 @@ public class MainActivity extends AppCompatActivity  {
                 submitGuess.setVisibility(View.VISIBLE);
                 TextView roundView = findViewById(R.id.txt_roundOn);
                 roundView.setText("Round: " + roundOn);
+                textView2.setText("Your Guess:");
             }
         });
 
