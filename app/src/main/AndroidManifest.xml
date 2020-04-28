@@ -20,6 +20,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Instructions"></activity>
+        <activity android:name=".InstructionsSliderAdapter" />
+        <activity android:name=".result" />
         <activity android:name=".MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +33,7 @@
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".CategorySelect"/>
+        <activity android:name=".CategorySelect" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

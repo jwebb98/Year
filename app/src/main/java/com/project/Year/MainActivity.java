@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity  {
              scoreOn = scoreOn + 80;
              TestAnswerStuff();
          }
-         else if (n==ImageYear-1 || n==ImageYear-1  ) {
+         else if (n==ImageYear+1 || n==ImageYear-1  ) {
              roundOn = roundOn + 1;
              YouScored.setText("You Scored " + 90);
              scoreOn = scoreOn + 90;
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity  {
         System.out.println(mQuestionNumber);} }
 
       if(roundOn==3){
-        int size = 2;  ArrayList<Integer> list = new ArrayList<Integer>(size);
+        int size = 5;  ArrayList<Integer> list = new ArrayList<Integer>(size);
         for(int i = 1; i <= size; i++) { list.add(i); }
         Random rand = new Random();
         if(list.size() > 0) { int index = rand.nextInt(list.size());System.out.println("INDEX SELECTED =   " + list.remove(index)); mQuestionNumber = index+11;
@@ -192,11 +192,11 @@ public class MainActivity extends AppCompatActivity  {
 
 
     public void UpdateQuestion(){
-        if (roundOn == 6) {
-            Intent myIntent = new Intent(MainActivity.this, MainMenu.class);
-            startActivity(myIntent);
-            finish();
-        }
+        //if (roundOn == 6) {
+          // Intent intent = new Intent(getApplicationContext(),result.class);
+           //intent.putExtra("SCORE",scoreOn);
+           //startActivity(intent);
+        //}
         mQuestionRef = new Firebase("https://retrieve-images-1c732.firebaseio.com/" + CategorySelect.mQuestionTopic + "/" + mQuestionNumber +"/image");
         TextView textView2 =  (TextView) findViewById(R.id.txt_YourGuess);
         TextView textView3 = (TextView) findViewById(R.id.txt_CorrectAnswer);
@@ -316,10 +316,11 @@ public class MainActivity extends AppCompatActivity  {
         submitGuess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validate();
-                editText.getText().clear();
-                TextView scoreView = (TextView) findViewById(R.id.txt_scoreOn);
-                scoreView.setText("Score: " + scoreOn);
+                    validate();
+                    editText.getText().clear();
+                    TextView scoreView = (TextView) findViewById(R.id.txt_scoreOn);
+                    scoreView.setText("Score: " + scoreOn);
+
             }
         });
 
@@ -327,13 +328,51 @@ public class MainActivity extends AppCompatActivity  {
         nextRound.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RandomQuestion();
-                UpdateQuestion();
-                editText.getText().clear();
-                submitGuess.setVisibility(View.VISIBLE);
-                TextView roundView = findViewById(R.id.txt_roundOn);
-                roundView.setText("Round: " + roundOn);
-                textView2.setText("Your Guess:");
+                if (roundOn == 6 && CategorySelect.mQuestionTopic == "History"){
+                    Intent intent = new Intent(getApplicationContext(),result.class);
+                    intent.putExtra("HISTORY_SCORE",scoreOn);
+                    startActivity(intent);
+                    submitGuess.setText("Finish Game");
+                }
+                else if (roundOn == 6 && CategorySelect.mQuestionTopic == "IconicMoviePosters"){
+                    Intent intent = new Intent(getApplicationContext(),result.class);
+                    intent.putExtra("FILM_SCORE",scoreOn);
+                    startActivity(intent);
+                    submitGuess.setText("Finish Game");
+                }
+                else if (roundOn == 6 && CategorySelect.mQuestionTopic == "AlbumCovers"){
+                    Intent intent = new Intent(getApplicationContext(),result.class);
+                    intent.putExtra("ALBUMS_SCORE",scoreOn);
+                    startActivity(intent);
+                    submitGuess.setText("Finish Game");
+                }
+                else if (roundOn == 6 && CategorySelect.mQuestionTopic == "HipHopAlbumCovers"){
+                    Intent intent = new Intent(getApplicationContext(),result.class);
+                    intent.putExtra("HIPHOP_SCORE",scoreOn);
+                    startActivity(intent);
+                    submitGuess.setText("Finish Game");
+                }
+                else if (roundOn == 6 && CategorySelect.mQuestionTopic == "F1Podiums"){
+                    Intent intent = new Intent(getApplicationContext(),result.class);
+                    intent.putExtra("F1PODIUMS_SCORE",scoreOn);
+                    startActivity(intent);
+                    submitGuess.setText("Finish Game");
+                }
+                else if (roundOn == 6 && CategorySelect.mQuestionTopic == "UefaChampionsLeague"){
+                    Intent intent = new Intent(getApplicationContext(),result.class);
+                    intent.putExtra("UEFACL_SCORE",scoreOn);
+                    startActivity(intent);
+                    submitGuess.setText("Finish Game");
+                }
+                else {
+                    RandomQuestion();
+                    UpdateQuestion();
+                    editText.getText().clear();
+                    submitGuess.setVisibility(View.VISIBLE);
+                    TextView roundView = findViewById(R.id.txt_roundOn);
+                    roundView.setText("Round: " + roundOn);
+                    textView2.setText("Your Guess:");
+                }
             }
         });
 
