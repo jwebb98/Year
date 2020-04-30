@@ -364,6 +364,16 @@ public class MainActivity extends AppCompatActivity  {
                     startActivity(intent);
                     submitGuess.setText("Finish Game");
                 }
+                else if(roundOn == 5){
+                    RandomQuestion();
+                    UpdateQuestion();
+                    editText.getText().clear();
+                    submitGuess.setVisibility(View.VISIBLE);
+                    TextView roundView = findViewById(R.id.txt_roundOn);
+                    roundView.setText("Round: " + roundOn);
+                    textView2.setText("Your Guess:");
+                    nextRound.setText("Finish Game");
+                }
                 else {
                     RandomQuestion();
                     UpdateQuestion();
@@ -373,6 +383,7 @@ public class MainActivity extends AppCompatActivity  {
                     roundView.setText("Round: " + roundOn);
                     textView2.setText("Your Guess:");
                 }
+
             }
         });
 

@@ -1,6 +1,8 @@
 package com.project.Year;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,12 +12,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class CategorySelect extends MainActivity {
+public class CategorySelect extends AppCompatActivity {
 
     ViewPager mSlideViewPager;
     LinearLayout mDotLayout;
 
     TextView[] mDots;
+    TextView Category1HighestScore;
+    TextView Category2HighestScore;
 
     SliderAdapter sliderAdapter;
 
@@ -27,6 +31,13 @@ public class CategorySelect extends MainActivity {
     int mCurrentPage;
     static String mQuestionTopic;
 
+    public static int getHistoryScore2;
+    public static int getFilmPosterScore2;
+    public static int getIconicAlbumScore2;
+    public static int getHipHopAlbumScore2;
+    public static int getUefaCLScore2;
+    public static int getF1PodiumsScore2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +45,16 @@ public class CategorySelect extends MainActivity {
 
         mSlideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
         mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
+        Category1HighestScore =(TextView) findViewById(R.id.txt_catergory1HighScore);
+        Category2HighestScore =(TextView) findViewById(R.id.txt_catergory2HighScore);
+
+        SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
+        getHistoryScore2 = settings.getInt("HISTORYSELECT_HIGH_SCORE", 0);
+        getFilmPosterScore2 = settings.getInt("FILMPOSTERSELECT_HIGH_SCORE", 0);
+        getIconicAlbumScore2 = settings.getInt("ICONICALBUMSELECT_HIGH_SCORE", 0);
+        getHipHopAlbumScore2 = settings.getInt("HIPHOPSELECT_HIGH_SCORE", 0);
+        getUefaCLScore2 = settings.getInt("UEFACLSELECT_HIGH_SCORE", 0);
+        getF1PodiumsScore2 = settings.getInt("F1PODIUMSELECT_HIGH_SCORE", 0);
 
         mNextBtn = (Button) findViewById(R.id.nextBtn);
         mBackBtn = (Button) findViewById(R.id.prevBtn);
@@ -131,6 +152,8 @@ public class CategorySelect extends MainActivity {
                 mCatergoryButton.setEnabled(false);
                 mCatergoryButton.setVisibility(View.INVISIBLE);
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
+                Category1HighestScore.setVisibility(View.INVISIBLE);
+                Category2HighestScore.setVisibility(View.INVISIBLE);
                 mNextBtn.setText("Next");
                 mBackBtn.setText("");
             }
@@ -140,11 +163,15 @@ public class CategorySelect extends MainActivity {
                 mBackBtn.setVisibility(View.VISIBLE);
                 mCatergoryButton.setEnabled(true);
                 mCatergoryButton.setText("Film Posters");
+                Category1HighestScore.setText("Highest Score = " + getFilmPosterScore2);
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
                 mNextBtn.setText("Next");
                 mQuestionTopic = "IconicMoviePosters";
                 mBackBtn.setText("Back");
+                Category1HighestScore.setVisibility(View.VISIBLE);
+                Category2HighestScore.setVisibility(View.INVISIBLE);
+
 
             }  else if(i == 2){
                 mNextBtn.setEnabled(true);
@@ -153,9 +180,12 @@ public class CategorySelect extends MainActivity {
                 mNextBtn.setText("Next");
                 mBackBtn.setText("Back");
                 mCatergoryButton.setText("Historical Events");
+                Category1HighestScore.setText("Highest Score = " + getHistoryScore2);
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
                 mQuestionTopic = "History";
+                Category1HighestScore.setVisibility(View.VISIBLE);
+                Category2HighestScore.setVisibility(View.INVISIBLE);
             }
             else if(i == 3){
                 mNextBtn.setEnabled(true);
@@ -167,8 +197,12 @@ public class CategorySelect extends MainActivity {
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mQuestionTopic = "AlbumCovers";
                 mCatergoryButton2.setText("Hip Hop Albums");
+                Category1HighestScore.setText("Highest Score = " + getIconicAlbumScore2);
                 mCatergoryButton2.setVisibility(View.VISIBLE);
                 mQuestionTopic = "AlbumCovers";
+                Category2HighestScore.setText("Highest Score = " + getHipHopAlbumScore2);
+                Category1HighestScore.setVisibility(View.VISIBLE);
+                Category2HighestScore.setVisibility(View.VISIBLE);
             }
             else if (i == mDots.length - 1){
                 mNextBtn.setEnabled(true);
@@ -177,11 +211,15 @@ public class CategorySelect extends MainActivity {
                 mCatergoryButton.setEnabled(true);
                 mCatergoryButton.setText("UEFA CL Teams");
                 mQuestionTopic = "UefaChampionsLeague";
+                Category1HighestScore.setText("Highest Score = " + getUefaCLScore2);
                 mCatergoryButton2.setText("F1 Podiums");
                 mCatergoryButton2.setVisibility(View.VISIBLE);
+                Category2HighestScore.setText("Highest Score = " + getF1PodiumsScore2);
                 mNextBtn.setText("");
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mBackBtn.setText("Back");
+                Category1HighestScore.setVisibility(View.VISIBLE);
+                Category2HighestScore.setVisibility(View.VISIBLE);
 
             }
         }

@@ -7,6 +7,18 @@
     android:backgroundTint="@color/common_google_signin_btn_text_dark_default"
     tools:context=".CategorySelect">
 
+    <TextView
+        android:id="@+id/txt_catergory2HighScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="Highest Score = "
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toEndOf="@+id/dotsLayout"
+        app:layout_constraintTop_toBottomOf="@+id/catergory_button2" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/slideViewPager"
         android:layout_width="419dp"
@@ -60,10 +72,10 @@
         android:id="@+id/catergory_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:text="Film Posters"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slideViewPager" />
 
@@ -71,13 +83,24 @@
         android:id="@+id/catergory_button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:text="Film Posters"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slideViewPager" />
+
+    <TextView
+        android:id="@+id/txt_catergory1HighScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="Highest Score = "
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/dotsLayout"
+        app:layout_constraintHorizontal_bias="0.602"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/catergory_button" />
 
 
 </android.support.constraint.ConstraintLayout>
