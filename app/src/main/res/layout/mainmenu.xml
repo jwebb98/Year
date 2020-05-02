@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/txt_titlemenu"
-        android:layout_width="match_parent"
-        android:layout_height="273dp"
+        android:layout_width="413dp"
+        android:layout_height="222dp"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/francois_one"
@@ -48,6 +48,20 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_category" />
+
+    <Button
+        android:id="@+id/btn_TwoPlayer"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/francois_one"
+        android:text="2 Player"
+        android:textColor="#010101"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_howToPlay" />
 
     <Button
         android:id="@+id/btn_howToPlay"

@@ -112,7 +112,7 @@ public class result extends AppCompatActivity {
              editor.commit();
 
         }
-         else if (f1PodiumsScoreOn < f1PodiumsHighScore && CategorySelect.mQuestionTopic == "F1Podiums"){
+         else if (f1PodiumsScoreOn <= f1PodiumsHighScore && CategorySelect.mQuestionTopic == "F1Podiums"){
              scoreLabel.setText(f1PodiumsScoreOn + "");
              highScoreLabel.setText("High Score : " + f1PodiumsHighScore);
              SharedPreferences.Editor editor = settings.edit();
@@ -123,7 +123,7 @@ public class result extends AppCompatActivity {
          }
 
 
-         else if (historyScoreOn < historyHighScore && CategorySelect.mQuestionTopic == "History"){
+         else if (historyScoreOn <= historyHighScore && CategorySelect.mQuestionTopic == "History"){
             scoreLabel.setText(historyScoreOn + "");
             highScoreLabel.setText("High Score for History : " + historyHighScore);
              SharedPreferences.Editor editor = settings.edit();
@@ -133,7 +133,7 @@ public class result extends AppCompatActivity {
              editor.commit();
         }
 
-        else if (filmScoreOn < filmHighScore && CategorySelect.mQuestionTopic == "IconicMoviePosters"){
+        else if (filmScoreOn <= filmHighScore && CategorySelect.mQuestionTopic == "IconicMoviePosters"){
              scoreLabel.setText(filmScoreOn + "");
             highScoreLabel.setText("High Score : " + filmHighScore);
              SharedPreferences.Editor editor = settings.edit();
@@ -142,7 +142,7 @@ public class result extends AppCompatActivity {
              editor.putInt("FILMPOSTERSELECT_HIGH_SCORE", filmHighScore);
              editor.commit();
         }
-        else if (albumsScoreOn < albumsHighScore && CategorySelect.mQuestionTopic == "AlbumCovers"){
+        else if (albumsScoreOn <= albumsHighScore && CategorySelect.mQuestionTopic == "AlbumCovers"){
              scoreLabel.setText(albumsScoreOn + "");
             highScoreLabel.setText("High Score : " + albumsHighScore);
              SharedPreferences.Editor editor = settings.edit();
@@ -151,7 +151,7 @@ public class result extends AppCompatActivity {
              editor.putInt("ICONICALBUMSELECT_HIGH_SCORE", albumsHighScore);
              editor.commit();
         }
-        else if (hiphopScoreOn < hiphopHighScore && CategorySelect.mQuestionTopic == "HipHopAlbumCovers"){
+        else if (hiphopScoreOn <= hiphopHighScore && CategorySelect.mQuestionTopic == "HipHopAlbumCovers"){
              scoreLabel.setText(hiphopScoreOn + "");
             highScoreLabel.setText("High Score : " + hiphopHighScore);
              SharedPreferences.Editor editor = settings.edit();
@@ -160,7 +160,7 @@ public class result extends AppCompatActivity {
              editor.putInt("HIPHOPSELECT_HIGH_SCORE", hiphopHighScore);
              editor.commit();
         }
-        else if (uefaCLScoreOn < uefaCLHighScore && CategorySelect.mQuestionTopic == "UefaChampionsLeague"){
+        else if (uefaCLScoreOn <= uefaCLHighScore && CategorySelect.mQuestionTopic == "UefaChampionsLeague"){
              scoreLabel.setText(uefaCLScoreOn + "");
             highScoreLabel.setText("High Score : " + uefaCLHighScore);
              SharedPreferences.Editor editor = settings.edit();

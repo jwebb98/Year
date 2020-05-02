@@ -20,7 +20,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".TwoPlayerResultScreen"></activity>
+        <activity android:name=".TwoPlayerCategoryScreen" />
+        <activity android:name=".TwoPlayerGameScreen" />
+        <activity android:name=".UserProfile" />
         <activity android:name=".Instructions" />
         <activity android:name=".InstructionsSliderAdapter" />
         <activity android:name=".result" />
