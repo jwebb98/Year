@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/alegreya</item>
+        <item>@font/alegreya_black</item>
         <item>@font/bowlby_one_sc</item>
         <item>@font/chicle</item>
         <item>@font/crete_round</item>
         <item>@font/dosis_semibold</item>
         <item>@font/fjalla_one</item>
         <item>@font/francois_one</item>
+        <item>@font/lato</item>
+        <item>@font/montserrat</item>
+        <item>@font/nova_slim</item>
+        <item>@font/open_sans_light</item>
+        <item>@font/playfair_display</item>
+        <item>@font/pt_sans_bold_italic</item>
+        <item>@font/roboto_thin</item>
         <item>@font/voltaire</item>
     </array>
 </resources>

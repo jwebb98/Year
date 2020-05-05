@@ -34,6 +34,10 @@ public class Login extends AppCompatActivity {
         bLoginBtn = findViewById( R.id.btnRegisterPage );
         bCreateScreenBtn = findViewById( R.id.CreateBtn );
         fAuth = FirebaseAuth.getInstance();
+        if (fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), MainMenu.class));
+            finish();
+        }
         pProgressBar = findViewById( R.id.widgetProgressBar );
         bForgotTextLinkBtn = findViewById( R.id.forgotPassword );
         bLoginBtn.setOnClickListener( new View.OnClickListener() {

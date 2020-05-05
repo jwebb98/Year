@@ -3,6 +3,7 @@ package com.project.Year;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class CategorySelect extends AppCompatActivity {
     TextView[] mDots;
     TextView Category1HighestScore;
     TextView Category2HighestScore;
+    TextView CategoryInfo;
 
     SliderAdapter sliderAdapter;
 
@@ -47,6 +49,7 @@ public class CategorySelect extends AppCompatActivity {
         mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
         Category1HighestScore =(TextView) findViewById(R.id.txt_catergory1HighScore);
         Category2HighestScore =(TextView) findViewById(R.id.txt_catergory2HighScore);
+        CategoryInfo =(TextView) findViewById(R.id.txt_CategoryInfo);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         getHistoryScore2 = settings.getInt("HISTORYSELECT_HIGH_SCORE", 0);
@@ -63,6 +66,9 @@ public class CategorySelect extends AppCompatActivity {
 
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
+
+        CategoryInfo.setText("View available Categories and select the one you would like to play. NOTE: More Categories will be added in future updates.  ");
+        CategoryInfo.setVisibility(View.VISIBLE);
 
         addDotsIndicator(0);
 
@@ -123,13 +129,13 @@ public class CategorySelect extends AppCompatActivity {
             mDots[i] = new TextView(this);
             mDots[i].setText(".");
             mDots[i].setTextSize(67);
-            mDots[i].setTextColor(getResources().getColor(R.color.Greytransparency));
+            mDots[i].setTextColor(getResources().getColor(R.color.Blacktransparency));
 
             mDotLayout.addView(mDots[i]);
         }
 
         if (mDots.length > 0) {
-            mDots[position].setTextColor(getResources().getColor(R.color.Blacktransparency));
+            mDots[position].setTextColor(getResources().getColor(R.color.common_google_signin_btn_text_dark_focused));
         }
     }
 
@@ -153,9 +159,10 @@ public class CategorySelect extends AppCompatActivity {
                 mCatergoryButton.setVisibility(View.INVISIBLE);
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
                 Category1HighestScore.setVisibility(View.INVISIBLE);
-                Category2HighestScore.setVisibility(View.INVISIBLE);
+                CategoryInfo.setVisibility(View.VISIBLE);
                 mNextBtn.setText("Next");
                 mBackBtn.setText("");
+
             }
             else if(i == 1){
                 mNextBtn.setEnabled(true);
@@ -163,7 +170,9 @@ public class CategorySelect extends AppCompatActivity {
                 mBackBtn.setVisibility(View.VISIBLE);
                 mCatergoryButton.setEnabled(true);
                 mCatergoryButton.setText("Film Posters");
-                Category1HighestScore.setText("Highest Score = " + getFilmPosterScore2);
+                Drawable myDrawable = getResources().getDrawable(R.drawable.icons8filmreel50);
+                mCatergoryButton.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable,null,null);
+                Category1HighestScore.setText("High Score: " + getFilmPosterScore2);
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
                 mNextBtn.setText("Next");
@@ -171,6 +180,7 @@ public class CategorySelect extends AppCompatActivity {
                 mBackBtn.setText("Back");
                 Category1HighestScore.setVisibility(View.VISIBLE);
                 Category2HighestScore.setVisibility(View.INVISIBLE);
+                CategoryInfo.setVisibility(View.INVISIBLE);
 
 
             }  else if(i == 2){
@@ -180,12 +190,15 @@ public class CategorySelect extends AppCompatActivity {
                 mNextBtn.setText("Next");
                 mBackBtn.setText("Back");
                 mCatergoryButton.setText("Historical Events");
-                Category1HighestScore.setText("Highest Score = " + getHistoryScore2);
+                Category1HighestScore.setText("High Score: " + getHistoryScore2);
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
+                Drawable myDrawable = getResources().getDrawable(R.drawable.icons8historical60);
+                mCatergoryButton.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable,null,null);
                 mQuestionTopic = "History";
                 Category1HighestScore.setVisibility(View.VISIBLE);
                 Category2HighestScore.setVisibility(View.INVISIBLE);
+                CategoryInfo.setVisibility(View.INVISIBLE);
             }
             else if(i == 3){
                 mNextBtn.setEnabled(true);
@@ -193,16 +206,21 @@ public class CategorySelect extends AppCompatActivity {
                 mBackBtn.setVisibility(View.VISIBLE);
                 mNextBtn.setText("Next");
                 mBackBtn.setText("Back");
-                mCatergoryButton.setText("Iconic Album Covers");
+                mCatergoryButton.setText("Iconic Albums");
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mQuestionTopic = "AlbumCovers";
-                mCatergoryButton2.setText("Hip Hop Albums");
-                Category1HighestScore.setText("Highest Score = " + getIconicAlbumScore2);
+                mCatergoryButton2.setText("Hip Hop");
+                Drawable myDrawable5 = getResources().getDrawable(R.drawable.icons8musicrecord60);
+                mCatergoryButton.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable5,null,null);
+                Category1HighestScore.setText("High Score: " + getIconicAlbumScore2);
                 mCatergoryButton2.setVisibility(View.VISIBLE);
                 mQuestionTopic = "AlbumCovers";
-                Category2HighestScore.setText("Highest Score = " + getHipHopAlbumScore2);
+                Category2HighestScore.setText("High Score: " + getHipHopAlbumScore2);
+                Drawable myDrawable3 = getResources().getDrawable(R.drawable.icons8hiphopmusic60);
+                mCatergoryButton2.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable3,null,null);
                 Category1HighestScore.setVisibility(View.VISIBLE);
                 Category2HighestScore.setVisibility(View.VISIBLE);
+                CategoryInfo.setVisibility(View.INVISIBLE);
             }
             else if (i == mDots.length - 1){
                 mNextBtn.setEnabled(true);
@@ -210,16 +228,21 @@ public class CategorySelect extends AppCompatActivity {
                 mBackBtn.setVisibility(View.VISIBLE);
                 mCatergoryButton.setEnabled(true);
                 mCatergoryButton.setText("UEFA CL Teams");
+                Drawable myDrawable2 = getResources().getDrawable(R.drawable.uefacl1);
+                mCatergoryButton.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable2,null,null);
                 mQuestionTopic = "UefaChampionsLeague";
-                Category1HighestScore.setText("Highest Score = " + getUefaCLScore2);
+                Category1HighestScore.setText("High Score: " + getUefaCLScore2);
                 mCatergoryButton2.setText("F1 Podiums");
                 mCatergoryButton2.setVisibility(View.VISIBLE);
-                Category2HighestScore.setText("Highest Score = " + getF1PodiumsScore2);
+                Category2HighestScore.setText("High Score: " + getF1PodiumsScore2);
+                Drawable myDrawable4 = getResources().getDrawable(R.drawable.icons8f1car70);
+                mCatergoryButton2.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable4,null,null);
                 mNextBtn.setText("");
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mBackBtn.setText("Back");
                 Category1HighestScore.setVisibility(View.VISIBLE);
                 Category2HighestScore.setVisibility(View.VISIBLE);
+                CategoryInfo.setVisibility(View.INVISIBLE);
 
             }
         }

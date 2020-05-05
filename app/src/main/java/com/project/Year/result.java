@@ -40,7 +40,7 @@ public class result extends AppCompatActivity {
 
 
         if (historyScoreOn > historyHighScore){
-            scoreLabel.setText(historyScoreOn + "");
+            scoreLabel.setText("Final Score: " + historyScoreOn + "");
             highScoreLabel.setText("High Score : " + historyScoreOn);
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("HISTORY_HIGH_SCORE", historyScoreOn);
@@ -52,7 +52,7 @@ public class result extends AppCompatActivity {
         }
 
          if (filmScoreOn > filmHighScore){
-            scoreLabel.setText(filmScoreOn + "");
+            scoreLabel.setText("Final Score: " + filmScoreOn + "");
             highScoreLabel.setText("High Score : " + filmScoreOn);
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("FILM_HIGH_SCORE", filmScoreOn);
@@ -64,7 +64,7 @@ public class result extends AppCompatActivity {
          }
 
         else if (albumsScoreOn > albumsHighScore){
-            scoreLabel.setText(albumsScoreOn + "");
+            scoreLabel.setText("Final Score: " + albumsScoreOn + "");
             highScoreLabel.setText("High Score : " + albumsScoreOn);
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("ALBUMS_HIGH_SCORE", albumsScoreOn);
@@ -76,7 +76,7 @@ public class result extends AppCompatActivity {
         }
 
         else if (hiphopScoreOn > hiphopHighScore){
-            scoreLabel.setText(hiphopScoreOn + "");
+            scoreLabel.setText("Final Score: " + hiphopScoreOn + "");
             highScoreLabel.setText("High Score : " + hiphopScoreOn);
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("HIPHOP_HIGH_SCORE", hiphopScoreOn);
@@ -89,7 +89,7 @@ public class result extends AppCompatActivity {
 
 
         else if (f1PodiumsScoreOn > f1PodiumsHighScore){
-            scoreLabel.setText(f1PodiumsScoreOn + "");
+            scoreLabel.setText("Final Score: " + f1PodiumsScoreOn + "");
             highScoreLabel.setText("High Score : " + f1PodiumsScoreOn);
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("F1PODIUMS_HIGH_SCORE", f1PodiumsScoreOn);
@@ -101,7 +101,7 @@ public class result extends AppCompatActivity {
         }
 
         else if (uefaCLScoreOn > uefaCLHighScore){
-            scoreLabel.setText(uefaCLScoreOn + "");
+            scoreLabel.setText("Final Score: " + uefaCLScoreOn + "");
             highScoreLabel.setText("High Score : " + uefaCLScoreOn);
              SharedPreferences.Editor editor = settings.edit();
              editor.putInt("UEFACL_HIGH_SCORE", uefaCLScoreOn);
@@ -112,19 +112,8 @@ public class result extends AppCompatActivity {
              editor.commit();
 
         }
-         else if (f1PodiumsScoreOn <= f1PodiumsHighScore && CategorySelect.mQuestionTopic == "F1Podiums"){
-             scoreLabel.setText(f1PodiumsScoreOn + "");
-             highScoreLabel.setText("High Score : " + f1PodiumsHighScore);
-             SharedPreferences.Editor editor = settings.edit();
-             editor.putInt("F1PODIUMPROFILE_HIGH_SCORE", f1PodiumsScoreOn);
-             editor.commit();
-             editor.putInt("F1PODIUMSELECT_HIGH_SCORE", f1PodiumsScoreOn);
-             editor.commit();
-         }
-
-
          else if (historyScoreOn <= historyHighScore && CategorySelect.mQuestionTopic == "History"){
-            scoreLabel.setText(historyScoreOn + "");
+            scoreLabel.setText("Final Score: " + historyScoreOn + "");
             highScoreLabel.setText("High Score for History : " + historyHighScore);
              SharedPreferences.Editor editor = settings.edit();
              editor.putInt("HISTORYPROFILE_HIGH_SCORE", historyHighScore);
@@ -134,7 +123,7 @@ public class result extends AppCompatActivity {
         }
 
         else if (filmScoreOn <= filmHighScore && CategorySelect.mQuestionTopic == "IconicMoviePosters"){
-             scoreLabel.setText(filmScoreOn + "");
+             scoreLabel.setText("Final Score: " + filmScoreOn + "");
             highScoreLabel.setText("High Score : " + filmHighScore);
              SharedPreferences.Editor editor = settings.edit();
              editor.putInt("FILMPOSTERPROFILE_HIGH_SCORE", filmHighScore);
@@ -143,7 +132,7 @@ public class result extends AppCompatActivity {
              editor.commit();
         }
         else if (albumsScoreOn <= albumsHighScore && CategorySelect.mQuestionTopic == "AlbumCovers"){
-             scoreLabel.setText(albumsScoreOn + "");
+             scoreLabel.setText("Final Score: " + albumsScoreOn + "");
             highScoreLabel.setText("High Score : " + albumsHighScore);
              SharedPreferences.Editor editor = settings.edit();
              editor.putInt("ICONICALBUMPROFILE_HIGH_SCORE", albumsHighScore);
@@ -152,7 +141,7 @@ public class result extends AppCompatActivity {
              editor.commit();
         }
         else if (hiphopScoreOn <= hiphopHighScore && CategorySelect.mQuestionTopic == "HipHopAlbumCovers"){
-             scoreLabel.setText(hiphopScoreOn + "");
+             scoreLabel.setText("Final Score: " + hiphopScoreOn + "");
             highScoreLabel.setText("High Score : " + hiphopHighScore);
              SharedPreferences.Editor editor = settings.edit();
              editor.putInt("HIPHOPPROFILE_HIGH_SCORE", hiphopHighScore);
@@ -161,7 +150,7 @@ public class result extends AppCompatActivity {
              editor.commit();
         }
         else if (uefaCLScoreOn <= uefaCLHighScore && CategorySelect.mQuestionTopic == "UefaChampionsLeague"){
-             scoreLabel.setText(uefaCLScoreOn + "");
+             scoreLabel.setText("Final Score: " + uefaCLScoreOn + "");
             highScoreLabel.setText("High Score : " + uefaCLHighScore);
              SharedPreferences.Editor editor = settings.edit();
              editor.putInt("UEFACLPROFILE_HIGH_SCORE", uefaCLHighScore);
@@ -169,6 +158,15 @@ public class result extends AppCompatActivity {
              editor.putInt("UEFACLSELECT_HIGH_SCORE", uefaCLHighScore);
              editor.commit();
         }
+         else if (f1PodiumsScoreOn <= f1PodiumsHighScore && CategorySelect.mQuestionTopic == "F1Podiums"){
+             scoreLabel.setText("Final Score: " + f1PodiumsScoreOn + "");
+             highScoreLabel.setText("High Score : " + f1PodiumsHighScore);
+             SharedPreferences.Editor editor = settings.edit();
+             editor.putInt("F1PODIUMPROFILE_HIGH_SCORE", f1PodiumsHighScore);
+             editor.commit();
+             editor.putInt("F1PODIUMSELECT_HIGH_SCORE", f1PodiumsHighScore);
+             editor.commit();
+         }
 
         mainMenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override

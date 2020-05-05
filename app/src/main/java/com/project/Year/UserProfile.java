@@ -14,6 +14,8 @@ public class UserProfile extends AppCompatActivity {
     TextView HistoryHighestScore;
     TextView FilmPostersHighestScore;
     TextView IconicAlbumsHighestScore;
+    TextView f1PodiumsHighestScore;
+
     Button mMainMenuBtn;
     public static int getHistoryScore;
     public static int getFilmPosterScore;
@@ -31,6 +33,7 @@ public class UserProfile extends AppCompatActivity {
         HistoryHighestScore = (TextView) findViewById(R.id.txt_HistoryScore);
         FilmPostersHighestScore = (TextView) findViewById(R.id.txt_FilmPostersScore);
         IconicAlbumsHighestScore = (TextView) findViewById(R.id.txt_IconicAlbumsScore);
+        f1PodiumsHighestScore = (TextView) findViewById(R.id.txt_f1PodiumsScore2);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         UserProfile.getHistoryScore = settings.getInt("HISTORYPROFILE_HIGH_SCORE", 0);
@@ -44,6 +47,7 @@ public class UserProfile extends AppCompatActivity {
         HistoryHighestScore.setText("" + getHistoryScore);
         FilmPostersHighestScore.setText("" + getFilmPosterScore);
         IconicAlbumsHighestScore.setText("" + getIconicAlbumScore);
+        f1PodiumsHighestScore.setText("" + getF1PodiumsScore);
 
 
 

@@ -32,9 +32,9 @@ public class Register extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance(); //Enables the sign in features to make use of Firebase authentication
         //Checks if user is Signed in on current device
         if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainMenu.class));
-            finish();
-        }
+           startActivity(new Intent(getApplicationContext(), MainMenu.class));
+           finish();
+       }
         bRegisterAccount.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
                 String EmailAddress = iEmailAddress.getText().toString().trim();

@@ -66,7 +66,6 @@ public class TwoPlayerGameScreen extends AppCompatActivity  {
 
 
         if (n == ImageYear) {
-            Toast.makeText(this,"Well done that is correct", Toast.LENGTH_SHORT).show();
             scoreOn = scoreOn + 100;
             YouScored.setText("Player 1 Scored: " + 100);
             Player2Question();
@@ -405,6 +404,8 @@ public class TwoPlayerGameScreen extends AppCompatActivity  {
         RandomQuestion();
         UpdateQuestion();
 
+        scoreOn = 0;
+        scoreOnPlayer2 =0;
 
         editText.getText().clear();
         editText2.getText().clear();
@@ -421,7 +422,9 @@ public class TwoPlayerGameScreen extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 validate();
-                editText.getText().clear();
+                //editText.getText().clear();
+                TextView scoreView = (TextView) findViewById(R.id.txt_scoreOn);
+                scoreView.setText("Player 1 Score: "  + scoreOn);
             }
         });
 
@@ -430,6 +433,8 @@ public class TwoPlayerGameScreen extends AppCompatActivity  {
             public void onClick(View v) {
                 validate2();
                 editText2.getText().clear();
+                TextView scoreView2 = (TextView) findViewById(R.id.txt_scoreOn2);
+                scoreView2.setText("Player 2 Score: "  + scoreOnPlayer2);
             }
         });
 
@@ -497,7 +502,7 @@ public class TwoPlayerGameScreen extends AppCompatActivity  {
                     submitGuess.setVisibility(View.VISIBLE);
                     TextView roundView = findViewById(R.id.txt_roundOn);
                     roundView.setText("Round: " + roundOn);
-                    textView2.setText("Your Guess:");
+                    textView2.setText("Player 1 Guess:");
                     nextRound.setText("Finish Game");
                 }
                 else {

@@ -281,6 +281,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
         TextView doubleView = (TextView) findViewById(R.id.txt_displaycorrectyear);
+        TextView Title= (TextView) findViewById(R.id.txt_PageTitle);
         editText = (EditText) findViewById(R.id.numberEnteredEt);
         submitGuess = (Button) findViewById(R.id.submitGuess);
         nextRound = (Button) findViewById(R.id.nextQuestion);
@@ -301,15 +302,36 @@ public class MainActivity extends AppCompatActivity  {
 
         scoreView.setVisibility(View.VISIBLE);
         roundView.setVisibility(View.VISIBLE);
-        scoreView.setText("Score: " + scoreOn);
-        roundView.setText("Round: " + roundOn);
+        scoreView.setText("" + scoreOn);
+        roundView.setText("" + roundOn);
         submitGuess.setVisibility(View.VISIBLE);
+
+        if (roundOn == 1 && CategorySelect.mQuestionTopic == "History"){
+            Title.setText("History");
+        }
+        else if (roundOn == 1 && CategorySelect.mQuestionTopic == "IconicMoviePosters"){
+            Title.setText("Film Posters");
+        }
+        else if (roundOn == 1 && CategorySelect.mQuestionTopic == "AlbumCovers"){
+            Title.setText("Iconic Albums");
+        }
+        else if (roundOn == 1 && CategorySelect.mQuestionTopic == "HipHopAlbumCovers"){
+            Title.setText("Hip Hop");
+        }
+        else if (roundOn == 1 && CategorySelect.mQuestionTopic == "F1Podiums"){
+            Title.setText("Formula 1");
+        }
+        else if (roundOn == 1 && CategorySelect.mQuestionTopic == "UefaChampionsLeague"){
+            Title.setText("UEFA CL");
+        }
 
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validate();
                 editText.getText().clear();
+                TextView scoreView = (TextView) findViewById(R.id.txt_scoreOn);
+                scoreView.setText("" + scoreOn);
             }
         });
 
@@ -319,7 +341,7 @@ public class MainActivity extends AppCompatActivity  {
                     validate();
                     editText.getText().clear();
                     TextView scoreView = (TextView) findViewById(R.id.txt_scoreOn);
-                    scoreView.setText("Score: " + scoreOn);
+                    scoreView.setText("" + scoreOn);
 
             }
         });
@@ -370,7 +392,7 @@ public class MainActivity extends AppCompatActivity  {
                     editText.getText().clear();
                     submitGuess.setVisibility(View.VISIBLE);
                     TextView roundView = findViewById(R.id.txt_roundOn);
-                    roundView.setText("Round: " + roundOn);
+                    roundView.setText("" + roundOn);
                     textView2.setText("Your Guess:");
                     nextRound.setText("Finish Game");
                 }
@@ -380,7 +402,7 @@ public class MainActivity extends AppCompatActivity  {
                     editText.getText().clear();
                     submitGuess.setVisibility(View.VISIBLE);
                     TextView roundView = findViewById(R.id.txt_roundOn);
-                    roundView.setText("Round: " + roundOn);
+                    roundView.setText("" + roundOn);
                     textView2.setText("Your Guess:");
                 }
 

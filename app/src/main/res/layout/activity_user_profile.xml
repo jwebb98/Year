@@ -4,185 +4,229 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/randombackground"
     tools:context=".UserProfile">
+
+    <TextView
+        android:id="@+id/txt_f1PodiumsHighestScoreLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="F1 Podiums"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_FilmPostersHighestScoresLabel" />
 
     <Button
         android:id="@+id/btnMainMenu3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="27dp"
+        android:fontFamily="@font/open_sans_light"
         android:text="Main Menu"
         android:textAllCaps="false"
+        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txt_IconicAlbumsScore"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginTop="24dp"
-        android:text="0"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.389"
-        app:layout_constraintStart_toEndOf="@+id/txt_IconicAlbumsHighestScoreLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txt_FilmPostersScore" />
-
-    <TextView
-        android:id="@+id/txt_FilmPostersScore"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginTop="20dp"
-        android:text="0"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toEndOf="@+id/txt_FilmPostersHighestScoresLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txt_HistoryScore" />
-
-    <TextView
-        android:id="@+id/txt_IconicAlbumsHighestScoreLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="24dp"
-        android:text="Iconic Albums"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_FilmPostersHighestScoresLabel" />
-
-    <TextView
-        android:id="@+id/txt_FilmPostersHighestScoresLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="21dp"
-        android:text="Film Posters"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_HistoryHighestScoreLabel" />
-
-    <TextView
-        android:id="@+id/txt_HighestScoreLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginStart="177dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="177dp"
-        android:text="Highest Scores:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_MostPlayedLabel" />
-
-    <TextView
-        android:id="@+id/txt_catergoryLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="12dp"
-        android:text="Catergory"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_HighestScoreLabel" />
-
-    <TextView
-        android:id="@+id/txt_HistoryHighestScoreLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="20dp"
-        android:text="History"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_catergoryLabel" />
-
-    <TextView
-        android:id="@+id/txt_scoreLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginTop="12dp"
-        android:text="Score"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toEndOf="@+id/txt_catergoryLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txt_HighestScoreLabel" />
-
-    <TextView
-        android:id="@+id/txt_HistoryScore"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginTop="20dp"
-        android:text="0"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
-        app:layout_constraintStart_toEndOf="@+id/txt_HistoryHighestScoreLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txt_scoreLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_f1PodiumsHighestScoreLabel2" />
 
     <TextView
         android:id="@+id/txt_NameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="180dp"
+        android:fontFamily="@font/open_sans_light"
         android:text="Jack Webb"
-        android:textSize="20sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/txt_emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="177dp"
-        android:layout_marginTop="68dp"
         android:layout_marginEnd="177dp"
+        android:fontFamily="@font/open_sans_light"
         android:text="jackwebb98@gmail.com"
-        android:textSize="20sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_NameLabel" />
-
-    <TextView
-        android:id="@+id/txt_MostPlayedLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginStart="177dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="177dp"
-        android:text="Most Played Catergory:"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_emailLabel" />
 
     <TextView
         android:id="@+id/txt_MostPlayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/open_sans_light"
         android:text="History"
-        android:textSize="20sp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
-        app:layout_constraintStart_toEndOf="@+id/txt_MostPlayedLabel"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_MostPlayedLabel" />
+
+    <TextView
+        android:id="@+id/txt_HighestScoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="177dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Highest Scores:"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_MostPlayed" />
+
+    <TextView
+        android:id="@+id/txt_HistoryHighestScoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="History"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_HighestScoreLabel" />
+
+    <TextView
+        android:id="@+id/txt_HistoryScore"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="0"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toEndOf="@+id/txt_HistoryHighestScoreLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txt_HighestScoreLabel" />
+
+    <TextView
+        android:id="@+id/txt_FilmPostersHighestScoresLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="Film Posters"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_HistoryHighestScoreLabel" />
+
+    <TextView
+        android:id="@+id/txt_IconicAlbumsHighestScoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="Iconic Albums"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_FilmPostersHighestScoresLabel" />
+
+    <TextView
+        android:id="@+id/txt_IconicAlbumsScore"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="0"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintStart_toEndOf="@+id/txt_IconicAlbumsHighestScoreLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txt_FilmPostersScore" />
+
+    <TextView
+        android:id="@+id/txt_f1PodiumsScore2"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="0"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintStart_toEndOf="@+id/txt_IconicAlbumsHighestScoreLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txt_FilmPostersScore" />
+
+    <TextView
+        android:id="@+id/txt_FilmPostersScore"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans_light"
+        android:text="0"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toEndOf="@+id/txt_FilmPostersHighestScoresLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txt_HistoryScore" />
+
+    <TextView
+        android:id="@+id/txt_MostPlayedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="177dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Most Played Catergory:"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_emailLabel" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icons8maleuser48" />
+
 </android.support.constraint.ConstraintLayout>

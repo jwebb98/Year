@@ -21,11 +21,11 @@ public class InstructionsSliderAdapter extends PagerAdapter {
     }
 
     public int[] slide_images= {
-            R.drawable.common_google_signin_btn_icon_light_focused,
-            R.drawable.film,
-            R.drawable.history,
-            R.drawable.music,
-            R.drawable.film
+            R.drawable.instructionsimage,
+            R.drawable.category100,
+            R.drawable.analyzeimage,
+            R.drawable.inputimage,
+            R.drawable.correctimage
     };
 
     public String[] slide_headings = {
@@ -37,14 +37,15 @@ public class InstructionsSliderAdapter extends PagerAdapter {
     };
 
     public String[] slide_descs = {
-            "The main objective of this game, is to try and score as many points as possible by guessing the year of a series of images, based on the category you have chosen.",
-            "To begin a match, you need to first select a category. On the category select screen, simply select the category you would like to play from the various options, and your match wil begin.",
+            "The main objective of this game, is to try and score as many points as possible by guessing the year of a series of images, based on the category you have chosen." +
+                    " Each match       will have 5 rounds, with a highest possible score of 500 achievable.",
+            "To begin a match, you need to first select a category. On the category select screen, simply select the category you would like to play from the various options, and your match will begin.",
             "Analyze the Image. Built-in zoom features allow for a closer inspection of the image and possible clues."
-                    + " Double Tap the image to Zoom In/Out and move around the image by swiping in the direction you wish to focus on.",
+                    + " Double Tap the image to Zoom In/Out and move around the image   by swiping in the direction you wish to    focus on.",
             "No Time Limit, No pressure. Take as long as you need to come up with an answer you would like to submit." +
-                    " Simply enter your guess in the provided area, and receive instant feedback on the correct answer and what you scored. Information on the Image can be found by pressing the Info button",
+                    " Simply enter your   guess in the provided area, and receive instant feedback containing the correct answer and what you scored.",
             "Points are awarded for how CLOSE you can get to the correct Year. Simply being Incorrect/Correct will not effect your Score." +
-                    " Take your time and form a accurate as possible guess to maximize points"
+                    " Take your time and form a accurate as possible guess to maximize points."
     };
 
     // public String[] slide_buttons = {

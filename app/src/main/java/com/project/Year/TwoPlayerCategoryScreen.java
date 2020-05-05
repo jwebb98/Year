@@ -3,6 +3,7 @@ package com.project.Year;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class TwoPlayerCategoryScreen extends AppCompatActivity {
     Button mBackBtn;
     Button mCatergoryButton;
     Button mCatergoryButton2;
+    TextView CategoryInfo;
 
     int mCurrentPage;
     static String mQuestionTopic;
@@ -51,9 +53,14 @@ public class TwoPlayerCategoryScreen extends AppCompatActivity {
         mBackBtn = (Button) findViewById(R.id.prevBtn);
         mCatergoryButton = (Button) findViewById(R.id.catergory_button);
         mCatergoryButton2 = (Button) findViewById(R.id.catergory_button2);
+        CategoryInfo =(TextView) findViewById(R.id.txt_CategoryInfo2);
 
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
+
+        CategoryInfo.setText("2 Player Mode Rules - Player 1 will enter their guess, then player 2 will enter theirs. Scores are revealed after each question. Highest score at the end of the match wins!"
+        + "NOTE: More Categories will be added in future updates. ");
+        CategoryInfo.setVisibility(View.VISIBLE);
 
         addDotsIndicator(0);
 
@@ -145,6 +152,7 @@ public class TwoPlayerCategoryScreen extends AppCompatActivity {
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
                 mNextBtn.setText("Next");
                 mBackBtn.setText("");
+                CategoryInfo.setVisibility(View.VISIBLE);
             }
             else if(i == 1){
                 mNextBtn.setEnabled(true);
@@ -154,9 +162,12 @@ public class TwoPlayerCategoryScreen extends AppCompatActivity {
                 mCatergoryButton.setText("Film Posters");
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
+                Drawable myDrawable = getResources().getDrawable(R.drawable.icons8filmreel50);
+                mCatergoryButton.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable,null,null);
                 mNextBtn.setText("Next");
                 mQuestionTopic = "IconicMoviePosters";
                 mBackBtn.setText("Back");
+                CategoryInfo.setVisibility(View.INVISIBLE);
 
             }  else if(i == 2){
                 mNextBtn.setEnabled(true);
@@ -165,9 +176,12 @@ public class TwoPlayerCategoryScreen extends AppCompatActivity {
                 mNextBtn.setText("Next");
                 mBackBtn.setText("Back");
                 mCatergoryButton.setText("Historical Events");
+                Drawable myDrawable = getResources().getDrawable(R.drawable.icons8historical60);
+                mCatergoryButton.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable,null,null);
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mCatergoryButton2.setVisibility(View.INVISIBLE);
                 mQuestionTopic = "History";
+                CategoryInfo.setVisibility(View.INVISIBLE);
             }
             else if(i == 3){
                 mNextBtn.setEnabled(true);
@@ -175,12 +189,17 @@ public class TwoPlayerCategoryScreen extends AppCompatActivity {
                 mBackBtn.setVisibility(View.VISIBLE);
                 mNextBtn.setText("Next");
                 mBackBtn.setText("Back");
-                mCatergoryButton.setText("Iconic Album Covers");
+                mCatergoryButton.setText("Iconic Albums");
+                Drawable myDrawable5 = getResources().getDrawable(R.drawable.icons8musicrecord60);
+                mCatergoryButton.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable5,null,null);
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mQuestionTopic = "AlbumCovers";
-                mCatergoryButton2.setText("Hip Hop Albums");
+                mCatergoryButton2.setText("Hip Hop");
+                Drawable myDrawable3 = getResources().getDrawable(R.drawable.icons8hiphopmusic60);
+                mCatergoryButton2.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable3,null,null);
                 mCatergoryButton2.setVisibility(View.VISIBLE);
                 mQuestionTopic = "AlbumCovers";
+                CategoryInfo.setVisibility(View.INVISIBLE);
             }
             else if (i == mDots.length - 1){
                 mNextBtn.setEnabled(true);
@@ -189,11 +208,16 @@ public class TwoPlayerCategoryScreen extends AppCompatActivity {
                 mCatergoryButton.setEnabled(true);
                 mCatergoryButton.setText("UEFA CL Teams");
                 mQuestionTopic = "UefaChampionsLeague";
+                Drawable myDrawable2 = getResources().getDrawable(R.drawable.uefacl1);
+                mCatergoryButton.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable2,null,null);
                 mCatergoryButton2.setText("F1 Podiums");
+                Drawable myDrawable4 = getResources().getDrawable(R.drawable.icons8f1car70);
+                mCatergoryButton2.setCompoundDrawablesWithIntrinsicBounds(null,myDrawable4,null,null);
                 mCatergoryButton2.setVisibility(View.VISIBLE);
                 mNextBtn.setText("");
                 mCatergoryButton.setVisibility(View.VISIBLE);
                 mBackBtn.setText("Back");
+                CategoryInfo.setVisibility(View.INVISIBLE);
             }
         }
 
