@@ -48,10 +48,6 @@ public class InstructionsSliderAdapter extends PagerAdapter {
                     " Take your time and form a accurate as possible guess to maximize points."
     };
 
-    // public String[] slide_buttons = {
-    //        "Film Posters", "Historical Events", "Iconic Album Covers", "UEFA CL Teams"
-    // };
-
     @Override
     public int getCount() {
         return slide_headings.length;
@@ -71,15 +67,10 @@ public class InstructionsSliderAdapter extends PagerAdapter {
         ImageView slideImageView = (ImageView) view.findViewById(R.id.slide_image);
         TextView slideHeading = (TextView) view.findViewById(R.id.slide_heading);
         TextView slideDescription = (TextView) view.findViewById(R.id.slide_desc);
-        //Button slideButton = (Button) view.findViewById(R.id.slide_button);
-
 
         slideImageView.setImageResource(slide_images[position]);
         slideHeading.setText(slide_headings[position]);
         slideDescription.setText(slide_descs[position]);
-        //slideButton.setText(slide_buttons[position]);
-
-
 
         container.addView(view);
 

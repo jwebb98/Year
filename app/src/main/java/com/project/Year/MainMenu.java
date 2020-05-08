@@ -30,7 +30,7 @@ public class MainMenu extends MainActivity{
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainMenu.this, CategorySelect.class);
                 startActivity(myIntent);
-                //randomIndex--;
+
             }
         });
 
@@ -40,7 +40,7 @@ public class MainMenu extends MainActivity{
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainMenu.this, Instructions.class);
                 startActivity(myIntent);
-                //randomIndex--;
+
             }
         });
 
@@ -50,7 +50,7 @@ public class MainMenu extends MainActivity{
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainMenu.this, UserProfile.class);
                 startActivity(myIntent);
-                //randomIndex--;
+
             }
         });
 
@@ -60,7 +60,7 @@ public class MainMenu extends MainActivity{
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainMenu.this, TwoPlayerCategoryScreen.class);
                 startActivity(myIntent);
-                //randomIndex--;
+
             }
         });
 

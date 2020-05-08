@@ -35,9 +35,6 @@ public class SliderAdapter extends PagerAdapter {
       "test","random stuff 1 hopefully working FILM", "random stuff 2 hopefully working HISTORY", "random stuff 3 hopefully working MUSIC", "random stuff 4 hopefully working Film"
     };
 
-   // public String[] slide_buttons = {
-    //        "Film Posters", "Historical Events", "Iconic Album Covers", "UEFA CL Teams"
-   // };
 
     @Override
     public int getCount() {
@@ -58,14 +55,10 @@ public class SliderAdapter extends PagerAdapter {
         ImageView slideImageView = (ImageView) view.findViewById(R.id.slide_image);
         TextView slideHeading = (TextView) view.findViewById(R.id.slide_heading);
         TextView slideDescription = (TextView) view.findViewById(R.id.slide_desc);
-        //Button slideButton = (Button) view.findViewById(R.id.slide_button);
-
 
         slideImageView.setImageResource(slide_images[position]);
         slideHeading.setText(slide_headings[position]);
         slideDescription.setText(slide_descs[position]);
-        //slideButton.setText(slide_buttons[position]);
-
 
 
         container.addView(view);
